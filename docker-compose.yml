@@ -7,6 +7,7 @@ services:
     container_name: task-manager-db
     restart: unless-stopped
     environment:
+      MYSQL_DATABASE: 'task_manager'
       MYSQL_ROOT_PASSWORD: 'localpass'
     ports:
       - 3306:3306
