@@ -1,0 +1,8 @@
+{
+  "roots": ["<rootDir>/src"],
+  "collectCoverageFrom": ["<rootDir>/src/**/*.js"],
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "coverageProvider": "v8"
+}
