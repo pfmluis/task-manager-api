@@ -4,7 +4,9 @@
   "description": "A small project to manage tasks",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js -d dist",
+    "build": "babel src/index.js -d dist",
+    "docker:build": "babel src/index.js -d dist",
+    "docker:start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
