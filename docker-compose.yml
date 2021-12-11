@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  task-manager-db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: task-manager-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'localpass'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./_data/task-manager-db:/var/lib/mysql
+
+  task-manager-api:
+    build: ./
+    depends_on:
+      - task-manager-db
+    container_name: task-manager-api
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+      - 9233:9233
+    tty: true
