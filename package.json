@@ -31,5 +31,9 @@
     "eslint-plugin-promise": "^5.2.0",
     "git-commit-msg-linter": "^3.2.8",
     "jest": "^27.4.4"
+  },
+  "dependencies": {
+    "knex": "^0.95.14",
+    "mysql": "^2.18.1"
   }
 }
