@@ -1,0 +1,19 @@
+{
+  "name": "task-manager-api",
+  "version": "1.0.0",
+  "description": "A small project to manage tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfmluis/task-manager-api.git"
+  },
+  "author": "Pedro Luis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pfmluis/task-manager-api/issues"
+  },
+  "homepage": "https://github.com/pfmluis/task-manager-api#readme"
+}
