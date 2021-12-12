@@ -5,6 +5,8 @@ export default function buildMakeUser({ idManager, validator }) {
     email,
     hash,
     role,
+    createdAt = new Date(),
+    updatedAt = new Date(),
     permissions = []
   }) => {
 
@@ -15,12 +17,12 @@ export default function buildMakeUser({ idManager, validator }) {
     return Object.freeze({
       getSid: () => sid,
       getName: () => name,
-      getUser: () => email,
-      role: () => role,
+      getEmail: () => email,
+      getRole: () => role,
+      getHash: () => hash,
       getPermissions: () => permissions,
-      setPassword: (hash) => {
-        hash = hash
-      } 
+      getCreatedAt: () => createdAt,
+      getUpdatedAt: () => updatedAt
     })
   }
 }
