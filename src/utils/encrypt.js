@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 
 function encrypt(string) {
-  const saltRounds = process.env.SALT_ROUNDS
+  const saltRounds = +process.env.SALT_ROUNDS
 
   return new Promise((resolve, reject) => {
     bcrypt.genSalt(saltRounds, (err, salt) => {

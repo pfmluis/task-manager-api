@@ -1,23 +1,19 @@
 export default function makeUserDb({ connection }) {
   
   async function createUser(user) {
-
     const newUser = mapCreateUserData(user)
-
     await connection('user').insert(newUser)
-
     const { hash, ...returnData } = user
 
     return returnData
   }
 
+  function findByEmail(email) {
+    return connection('user').where('email', email)
+  }
+
   function mapCreateUserData(user) {
-    const {
-      ...userData,
-      role,
-      createdAt,
-      updatedAt
-    } = user
+    const { role, createdAt, updatedAt, ...userData } = user
 
     return { 
       ...userData,
@@ -28,6 +24,7 @@ export default function makeUserDb({ connection }) {
   }
 
   return Object.freeze({
-    createUser
+    createUser,
+    findByEmail
   })
 }

@@ -11,6 +11,9 @@ export default function userValidator(user) {
     name: Joi.string()
       .max(30)
       .required(),
+    email: Joi.string()
+      .email()
+      .required(),
     hash: Joi.string(),
     role: Joi.string()
       .max(25)
@@ -22,8 +25,5 @@ export default function userValidator(user) {
 
   const { error } = schema.validate(user)
 
-  return {
-    isValid: !error,
-    error
-  }
+  return Object.freeze({ isValid: !error, error })
 }

@@ -9,9 +9,7 @@ export default function buildMakeUser({ idManager, validator }) {
     updatedAt = new Date(),
     permissions = []
   }) => {
-
     const { isValid, error } = validator({ sid, name, email, hash, role, permissions })
-
     if (!isValid) throw new Error(error)
 
     return Object.freeze({
