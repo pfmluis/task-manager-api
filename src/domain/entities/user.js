@@ -8,7 +8,7 @@ export default function buildMakeUser({ idManager, validator }) {
     permissions = []
   }) => {
 
-    const { isValid, error } = validator({ sid, name, email, hash, role })
+    const { isValid, error } = validator({ sid, name, email, hash, role, permissions })
 
     if (isValid) throw new Error(error)
 
