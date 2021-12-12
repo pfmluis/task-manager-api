@@ -1,10 +1,8 @@
-import uuid from 'uuid'
+import { v4, validate } from 'uuid'
 
-export default function buildMakeId() {
-  return () => {
-    return Object.freeze({
-      generate: uuid.v4,
-      validate: uuid.validate
-    })
-  }
+export default function makeId() {
+  return Object.freeze({
+    generate: v4,
+    validate
+  })
 }
