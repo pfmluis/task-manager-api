@@ -1,6 +1,6 @@
 import { InvalidEntityException } from '../../entities/exceptions/invalid-entity'
 
-export default function buildMakeAddUser({ userDb, roleDb, validatePassword, encryptor, makeUser}) {
+export default function buildMakeAddUser({ userDb, roleDb, validatePassword, encryptor, makeUser }) {
   return async (userData) => {
     const { password, ...userInfo } = userData
     const { isValid, error } = validatePassword(password)
