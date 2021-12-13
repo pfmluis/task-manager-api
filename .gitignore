@@ -105,3 +105,6 @@ dist
 
 # Volumes
 _data
+
+# IDE
+.vscode

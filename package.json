@@ -7,6 +7,7 @@
     "build": "babel src -d dist",
     "docker:build": "babel src/index.js -d dist",
     "docker:start": "node dist",
+    "start:dev": "nodemon --inspect --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,9 +31,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "git-commit-msg-linter": "^3.2.8",
-    "jest": "^27.4.4"
+    "jest": "^27.4.4",
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "@babel/node": "^7.16.0",
     "bcrypt": "^5.0.1",
     "joi": "^17.5.0",
     "knex": "^0.95.14",
