@@ -1,9 +1,9 @@
-import makeId from './id'
+import makeId from '../../utils/id'
 import userValidator from './validators/user-validator'
 import buildMakeUser from './user'
 import buildMakeUserLogin from './user-login'
 import userLoginValidator from './validators/user-login-validator'
-import buildMakeUserFromToken from './user-from-token'
+import buildMakeUserFromToken from './auth/user-from-token'
 import userFromTokenValidator from './validators/user-from-token-validator'
 
 const idManager = makeId()
