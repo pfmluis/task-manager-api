@@ -8,13 +8,6 @@ export default function buildMakeAuthentication({ userDb, encryptor, makeUser, m
 
     if (!passwordMatches) throw new UnauthorizedException('The provided credentials are incorrect')
 
-    /**
-     * {
-     *   "access_token":"eyJz93a...k4laUWw",
-     *   "token_type":"Bearer",
-     *   "expires_in":86400
-     *w }
-     */
     return await tokenManager.getAuthResponse(user)
   }
 }
