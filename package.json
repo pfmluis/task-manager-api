@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "@babel/node": "^7.16.0",
+    "amqp-connection-manager": "^3.7.0",
+    "amqplib": "^0.8.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "express": "^4.17.1",
