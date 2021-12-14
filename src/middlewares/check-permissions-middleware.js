@@ -7,7 +7,7 @@ export default function makeCheckPermissionsMiddleware() {
         .some(Boolean)
 
       if (!hasPermissions) {
-        response.status(403).send('Unavailable resource')
+        response.status(403).json({  status: 403, message: 'Unavailable resource' })
       }
 
       next()

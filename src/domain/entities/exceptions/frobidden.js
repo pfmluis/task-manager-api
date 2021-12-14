@@ -3,6 +3,6 @@ export class ForbiddenException extends Error {
   constructor(message) {
     super(message)
     this.name = 'ForbiddenException'
-    this.status = 403
+    this.statusCode = 403
   }
 }
