@@ -22,6 +22,13 @@ export default function makeTaskDb({ connection }) {
     return true
   }
 
+  function deleteOne(sid) {
+    return connection('task')
+      .where('sid', sid)
+      .first()
+      .del()
+  }
+
   function mapCreateTaskData(task) {
     const { executedAt, createdAt, updatedAt, executedBy, ...taskData } = task
 
@@ -45,6 +52,7 @@ export default function makeTaskDb({ connection }) {
   }
 
   function mapToTaskEntity(task) {
+    if (!task) return
     const { executed_at, created_at, updated_at, user_sid, ...taskData } = task
 
     return { 
@@ -59,6 +67,7 @@ export default function makeTaskDb({ connection }) {
   return Object.freeze({
     createTask,
     findBySid,
-    updateOne
+    updateOne,
+    deleteOne
   })
 }
