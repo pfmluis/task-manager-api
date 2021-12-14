@@ -1,6 +1,6 @@
 import { InvalidEntityException } from '../../entities/exceptions/invalid-entity'
 
-export default function buildMakeAddUser({ userDb, roleDb, validatePassword, encryptor, makeUser }) {
+export default function makeAddUser({ userDb, roleDb, validatePassword, passwordHash, makeUser }) {
   return async (userData) => {
     const { password, ...userInfo } = userData
     const { isValid, error } = validatePassword(password)
@@ -16,7 +16,7 @@ export default function buildMakeAddUser({ userDb, roleDb, validatePassword, enc
     if (!roleExists) throw new InvalidEntityException(`Role ${userInfo.role} could not be found`)
 
     try {
-      const hashedPassword = await encryptor.encrypt(password)
+      const hashedPassword = await passwordHash.encrypt(password)
       const user = makeUser({ ...userInfo, hash: hashedPassword })
 
       return userDb.createUser({

@@ -1,5 +1,6 @@
 import makeUserDb from './user-db'
 import makeRoleDb from './role-db'
+import makeTaskDb from './task-db'
 
 const connection = require('knex')({
   client: process.env.DB_CLIENT,
@@ -14,7 +15,7 @@ const connection = require('knex')({
 
 const userDb = makeUserDb({ connection })
 const roleDb = makeRoleDb({ connection })
+const taskDb = makeTaskDb({ connection })
 
-const dbAccessors = Object.freeze({ userDb, roleDb })
-
+const dbAccessors = Object.freeze({ userDb, roleDb, taskDb })
 export default dbAccessors

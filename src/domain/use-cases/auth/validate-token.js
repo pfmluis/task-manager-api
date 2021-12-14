@@ -1,6 +1,6 @@
 import { UnauthorizedException } from '../../entities/exceptions/unauthorized';
 
-export default function buildMakeValidateToken({ makeUserFromToken, tokenManager }) {
+export default function makeValidateToken({ makeUserFromToken, tokenManager }) {
   return async (token) => {
     const userData = await tokenManager.verify(token)
     const user = makeUserFromToken(userData)
