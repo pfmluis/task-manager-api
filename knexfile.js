@@ -5,6 +5,7 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
+      host: 'task-manager-db',
       database: 'task_manager',
       user:     'root',
       password: 'localpass'

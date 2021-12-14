@@ -14,10 +14,25 @@ services:
     volumes:
       - ./_data/task-manager-db:/var/lib/mysql
 
+  task-manager-amqp:
+    image: rabbitmq:3
+    container_name: task-manager-amqp
+    restart: unless-stopped
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: 'localuser'
+      RABBITMQ_DEFAULT_PASS: 'localpass'
+    volumes:
+      - ./_data/task-manager-amqp:/var/lib/rabbitmq
+      - ./configs/rabbit_enabled_plugins:/etc/rabbitmq/enabled_plugins
+
   task-manager-api:
     build: ./
     depends_on:
       - task-manager-db
+      - task-manager-amqp
     container_name: task-manager-api
     restart: unless-stopped
     ports:
