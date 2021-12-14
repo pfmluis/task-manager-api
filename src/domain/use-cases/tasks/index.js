@@ -7,6 +7,7 @@ import db from '../../../data';
 import notifyTaskCreated from '../../../utils/notify-task-created'
 import makeUpdateTask from './update-task';
 import makeDeleteTask from './delete-task';
+import makeFindTasks from './find-tasks';
 
 
 const makeTask = entities.makeTask
@@ -15,6 +16,7 @@ const taskDb = db.taskDb
 const createTask = makeCreateTask({ makeTask, createTaskValidator, encryptor, taskDb, notifyTaskCreated })
 const updateTask = makeUpdateTask({ makeTask, updateTaskValidator, encryptor, taskDb })
 const deleteTask = makeDeleteTask({ makeTask, taskDb })
+const findTasks = makeFindTasks({ encryptor, taskDb})
 
-const taskService = Object.freeze({ createTask, updateTask, deleteTask })
+const taskService = Object.freeze({ createTask, updateTask, deleteTask, findTasks })
 export default taskService

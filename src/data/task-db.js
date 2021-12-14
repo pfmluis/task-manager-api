@@ -29,6 +29,17 @@ export default function makeTaskDb({ connection }) {
       .del()
   }
 
+  async function findByUserSid(userSid) {
+    return (await connection('task')
+      .where('user_sid', userSid))
+      .map(mapToTaskEntity)
+  }
+
+  async function findAll() {
+    return (await connection('task'))
+    .map(mapToTaskEntity)
+  }
+
   function mapCreateTaskData(task) {
     const { executedAt, createdAt, updatedAt, executedBy, ...taskData } = task
 
@@ -68,6 +79,8 @@ export default function makeTaskDb({ connection }) {
     createTask,
     findBySid,
     updateOne,
-    deleteOne
+    deleteOne,
+    findByUserSid,
+    findAll
   })
 }
