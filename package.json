@@ -9,7 +9,7 @@
     "docker:start": "node dist",
     "start:dev": "nodemon --inspect --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:migrate": "npx knex migrate:latest"
+    "docker:migrate": "npx knex migrate:latest --env docker"
   },
   "repository": {
     "type": "git",
