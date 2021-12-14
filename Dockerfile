@@ -13,4 +13,10 @@ COPY ./src src
 
 RUN npm run docker:build
 
+COPY knexfile.js .
+COPY ./migrations .
+COPY ./seeds .
+
+RUN npm run db:migrate
+
 CMD npm run docker:start
