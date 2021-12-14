@@ -1,4 +1,4 @@
-export default function makeUpdateTaskController({ findTasks }) {
+export default function makeFindTaskController({ findTasks }) {
   return async (httpRequest) => {
     const user = httpRequest.user
     const tasks = await findTasks(user)
