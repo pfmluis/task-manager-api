@@ -18,11 +18,8 @@ export default function makeCreateTask({ makeTask, createTaskValidator, encrypto
       executedAt: task.getExecutedAt()
     })
 
-    try {
-      await notifyTaskCreated(createdTask)
-    } catch (error) {
-      console.error(error);
-    }
+    notifyTaskCreated(createdTask)
+      .catch(console.error)
 
     return {
       ...createdTask,
