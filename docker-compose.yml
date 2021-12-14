@@ -28,14 +28,14 @@ services:
       - ./_data/task-manager-amqp:/var/lib/rabbitmq
       - ./configs/rabbit_enabled_plugins:/etc/rabbitmq/enabled_plugins
 
-  # task-manager-api:
-  #   build: ./
-  #   depends_on:
-  #     - task-manager-db
-  #     - task-manager-amqp
-  #   container_name: task-manager-api
-  #   restart: unless-stopped
-  #   ports:
-  #     - 3000:3000
-  #     - 9233:9233
-  #   tty: true
+  task-manager-api:
+    build: ./
+    depends_on:
+      - task-manager-db
+      - task-manager-amqp
+    container_name: task-manager-api
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+      - 9233:9233
+    tty: true
