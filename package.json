@@ -9,7 +9,7 @@
     "docker:start": "node dist",
     "start:dev": "nodemon --inspect --exec babel-node src/index.js",
     "test": "jest",
-    "tesk:watch": "jest --watch",
+    "test:watch": "jest --watch",
     "docker:migrate": "npx knex migrate:latest --env docker"
   },
   "repository": {
