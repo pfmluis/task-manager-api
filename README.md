@@ -18,3 +18,7 @@ This is a project that allows for the management of maintenance tasks, it allows
 3. Be sure to migrate and seed the database by oppening the container shell of the container `task-manager-api` and running the commands
 		 `npm run docker:migrate`
 		`npm run docker:seed`
+
+
+## Postman
+To help you test the application on your own, you can find a Postman file in the folder `documentation/postman`
