@@ -7,20 +7,25 @@ export default function userValidator(user) {
         version: [
           'uuidv4'
         ]
-      }),
+      })
+      .required(),
     name: Joi.string()
       .max(30)
       .required(),
     email: Joi.string()
       .email()
       .required(),
-    hash: Joi.string(),
+    hash: Joi.string()
+      .optional(),
     role: Joi.string()
       .max(25)
       .required(),
-    permissions: Joi
-      .array()
-      .required()
+    permissions: Joi.array()
+      .required(),
+    createdAt: Joi.date()
+      .optional(),
+    updatedAt: Joi.date()
+      .optional()
   })
 
   const { error } = schema.validate(user)
