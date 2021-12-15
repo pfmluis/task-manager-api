@@ -1,0 +1,1 @@
+export const validatePasswordStub = (password) => ({ isValid: true, error: undefined })

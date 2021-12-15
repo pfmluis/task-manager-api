@@ -3,15 +3,15 @@ import userLoginValidator from './user-login-validator'
 
 const sut = userLoginValidator
 
-describe('makeUserLogin', () => {
+describe('userLoginValidator', () => {
   
-  it('should throw if email is undefined', () => {
+  it('should return invalid if email is undefined', () => {
     const user = makeFakeUserLogin({ email: undefined })
     const result = sut(user)
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if password is undefined', () => {
+  it('should return invalid if password is undefined', () => {
     const user = makeFakeUserLogin({ password: undefined })
     const result = sut(user)
     expect(result.isValid).toBe(false)

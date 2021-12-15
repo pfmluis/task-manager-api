@@ -17,19 +17,19 @@ describe('taskValidator', () => {
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if executedAt is not a date', () => {
+  it('should return invalid if executedAt is not a date', () => {
     const task = makeFakeTask({ executedAt: 'invalid' })
     const result = sut(task)
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if summary is undefined', () => {
+  it('should return invalid if summary is undefined', () => {
     const task = makeFakeTask({ summary: undefined })
     const result = sut(task)
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if summary is empty', () => {
+  it('should return invalid if summary is empty', () => {
     const task = makeFakeTask({ summary: '' })
     const result = sut(task)
     expect(result.isValid).toBe(false)
@@ -41,7 +41,7 @@ describe('taskValidator', () => {
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if executedBy is invalid', () => {
+  it('should return invalid if executedBy is invalid', () => {
     const task = makeFakeTask({ executedBy: 'invalid' })
     const result = sut(task)
     expect(result.isValid).toBe(false)

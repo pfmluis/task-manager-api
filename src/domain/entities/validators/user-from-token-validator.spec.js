@@ -3,15 +3,15 @@ import userFromTokenValidator from './user-from-token-validator'
 
 const sut = userFromTokenValidator
 
-describe('makeUserFromToken', () => {
+describe('userFromTokenValidator', () => {
   
-  it('should throw if sid is undefined', () => {
+  it('should return invalid if sid is undefined', () => {
     const user = makeFakeUserFromToken({ sid: undefined })
     const result = sut(user)
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if role is undefined', () => {
+  it('should return invalid if role is undefined', () => {
     const user = makeFakeUserFromToken({ role: undefined })
     const result = sut(user)
     expect(result.isValid).toBe(false)
@@ -23,7 +23,7 @@ describe('makeUserFromToken', () => {
     expect(result.isValid).toBe(false)
   })
 
-  it('should throw if sid is invalid', () => {
+  it('should return invalid if sid is invalid', () => {
     const user = makeFakeUserFromToken({ sid: 'invalid' })
     const result = sut(user)
     expect(result.isValid).toBe(false)

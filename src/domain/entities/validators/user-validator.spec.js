@@ -3,7 +3,7 @@ import userValidator from './user-validator'
 
 const sut = userValidator
 
-describe('makeUser', () => {
+describe('userValidator', () => {
 
   it('should generate a sid if none is provided', () => {
     const user = makeUser({ sid: undefined })

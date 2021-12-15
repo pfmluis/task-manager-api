@@ -1,7 +1,7 @@
 import faker from 'faker'
 import { v4 } from 'uuid'
 
-export default function makeFakeUserLogin(overrides) {
+export default function makeFakeUser(overrides) {
   const user = {
     sid: v4(),
     name: faker.name.firstName(),
