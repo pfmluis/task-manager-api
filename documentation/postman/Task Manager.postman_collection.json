@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "411a6107-0bdb-4db9-8784-00be55f2fc82",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pedro Luís\",\n    \"email\": \"pedro.f.luis@rupeal.com\",\n    \"password\": \"TestTest123@\",\n    \"role\": \"Technician\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/register",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"if (jsonData && jsonData.access_token) {",
+									"    pm.collectionVariables.set(\"accessToken\", jsonData.access_token)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "pedro.f.luis!@rupeal.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "TestTest123@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{address}}/auth/token",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"executedAt\": \"2021-12-14T17:15:18.765\",\n    \"summary\": \"I just made this task, and I feel good about it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/v1/tasks",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"executedAt\": \"2021-12-14T17:15:18.765\",\n    \"summary\": \"I just made this task, and I very feel good about it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/v1/tasks/df4f8b7b-0b73-4553-84ac-b8351b53cc1c",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"v1",
+								"tasks",
+								"df4f8b7b-0b73-4553-84ac-b8351b53cc1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"executedAt\": \"2021-12-14T17:15:18.765\",\n    \"summary\": \"I just made this task, and I very feel good about it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/v1/tasks/df4f8b7b-0b73-4553-84ac-b8351b53cc1c",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"v1",
+								"tasks",
+								"df4f8b7b-0b73-4553-84ac-b8351b53cc1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"executedAt\": \"2021-12-14T17:15:18.765\",\n    \"summary\": \"I just made this task, and I very feel good about it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/v1/tasks",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": ""
+		}
+	]
+}
