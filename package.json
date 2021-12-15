@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "docker:build": "babel src -d dist",
-    "docker:start": "node dist",
     "start:dev": "nodemon --inspect --exec babel-node src/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "docker:migrate": "npx knex migrate:latest --env docker"
+    "docker:build": "babel src -d dist",
+    "docker:start": "node dist",
+    "docker:migrate": "npx knex migrate:latest --env docker",
+    "docker:seed": "npx knex seed:run --env docker"
   },
   "repository": {
     "type": "git",
